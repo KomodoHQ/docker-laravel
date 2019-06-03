@@ -1,0 +1,68 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: digitalocean.com/php
+    container_name: app
+    restart: unless-stopped
+    tty: true
+    working_dir: /var/www
+    environment:
+      APP_NAME: Laravel
+      APP_ENV: local
+      APP_KEY: 'base64:G0Tty7anki4geRAMdEovCLAXRiERApsp3yEwhv9Vcqk='
+      APP_DEBUG: 1
+      APP_URL: http://localhost
+      LOG_CHANNEL: stack
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: app
+      DB_USERNAME: app
+      DB_PASSWORD: 20g80MQg8vS5zaB1
+      BROADCAST_DRIVER: log
+      CACHE_DRIVER: file
+      QUEUE_CONNECTION: sync
+      SESSION_DRIVER: file
+      SESSION_LIFETIME: 120
+
+    volumes:
+      - ./:/var/www
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    depends_on:
+      - "db"
+    command: ["./scripts/wait-for-containers.sh", "db", "php-fpm"]
+
+  web:
+    image: nginx:alpine
+    container_name: web
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+
+  db:
+    image: mysql:5.7.22
+    container_name: db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: app
+      MYSQL_USER: app
+      MYSQL_PASSWORD: 20g80MQg8vS5zaB1
+      MYSQL_ROOT_PASSWORD: 1MngSA7yClGv5C8R
+    volumes:
+      - dbdata:/var/lib/mysql/
+
+volumes:
+  dbdata:
+    driver: local

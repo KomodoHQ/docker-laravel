@@ -23,7 +23,7 @@ Follow these steps for a branch new installation:
 3. Enter your project: `cd myapp`
 4. Start the project: `./scripts/start.sh`
 
-If this is the first time you've started the project it may take some time as it will install composer packages and run migrations. 
+If this is the first time you've started the project it may take some time as it will install composer packages. 
 
 Once the project is booted, you should see the Laravel welcome screen at [http://localhost](http://localhost).
 

@@ -12,7 +12,7 @@ Check these requirements before starting:
 * Ensure that no other containers/projects are running: `docker ps`
 * Ensure that there are no other servers reserving port 80 and 3306
 * An IDE you're comfortable with, e.g. PhpStorm, VSCode, etc
-* Sequel Pro or similar MySQL GUI
+* [Sequel Pro](https://www.sequelpro.com/) or similar MySQL GUI
 
 ## Getting Started
 
@@ -37,7 +37,7 @@ _**NOTE:** Before starting your work, ensure that you have created a new Git rep
 
 ## Connect to MySQL
 
-In some cases you may want to connect to your MySQL server via a GUI, you can do this using Sequel Pro. 
+In some cases you may want to connect to your MySQL server via a GUI, you can do this using [Sequel Pro](https://www.sequelpro.com/). 
 
 When setting up a new connection, set thet host to `127.0.0.1` and you will find the username/password credentials within the environment section of the `docker-compose.yml` file located in this project. 
 

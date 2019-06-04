@@ -31,11 +31,12 @@ _**NOTE:** Before starting your work, ensure that you have created a new Git rep
 
 ### Create Git Repository
 
-1. Delete the unwanted .git directory: `rm -rf .git`
-2. Initialise your own project repositry: `git init`
-3. Add the Laravel framework files: `git add .`
-4. Commit to the repo: `git commit -m "Initial Laravel files"`
-5. Begin the work and commit regularly!
+1. In terminal, browse to your project directory
+2. Delete the unwanted .git directory: `rm -rf .git`
+3. Initialise your own project repositry: `git init`
+4. Add the Laravel framework files: `git add .`
+5. Commit to the repo: `git commit -m "Initial Laravel files"`
+6. Begin the work and commit regularly!
 
 ## Connect to MySQL
 
@@ -54,6 +55,10 @@ The project contains some helper scripts for common tasks which you can run from
 `./scripts/down-with-volumes.sh` - Kill the project containers and also delete all associated volumes, this will also remove MySQL database data.
 
 `./scripts/clean.sh` - Clean the project and return it back to the previous state before the project was booted, will clear caches and composer packages. 
+
+## Feedback Welcome
+
+If you have any issues or feature requests, please get in touch or create a pull request!
 
 --
 Happy coding!
